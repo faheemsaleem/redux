@@ -1,18 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from "redux";
 import {Provider} from "react-redux";
-import {ruducer} from "./ruducer";
-import App from './App';
+import {createStore} from "redux";
+
+import {Ruducer} from "./ruducer";
+import App from './component/App';
 
 
-const store = createStore(ruducer)
-
-
+const store = createStore(Ruducer)
 
 ReactDOM.render(
-<Provider store={store}>
-    <App />
-</Provider>
+    <Provider store={store}>
+        <App />
+    </Provider>
 , document.getElementById('root'));
 

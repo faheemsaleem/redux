@@ -1,25 +1,23 @@
-import * as type from "./../types";
+import * as type from "../types";
 
-const initState = {number :0,value:""}
-export const ruducer = (state = initState,action)=>{
+const initstate = {
+    inputValue:"",
+    task:[]
+}
+export const Ruducer = (state=initstate,action)=>{
     switch (action.type) {
-        case type.INCREMENT:
+        case type.GET_INPUT_VALUE:
+            return{
+                ...state,
+                inputValue:action.payload.value
+            }
+        case type.UPDATE_ARRAY:
             return {
                 ...state,
-                number:state.number + 1
+                task:[...state.task,state.inputValue]
             }
-        case type.DICREMENT:
-            return{
-                ...state,
-                number:state.number - 1
+            default:return {
+                ...state
             }
-        case type.INPUT_VALUE:
-            return{
-                ...state,
-                value:action.payload.value
-            }
-        default:return{ ...state}
     }
 }
-
-

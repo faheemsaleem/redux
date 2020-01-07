@@ -1,3 +1,2 @@
-export const INCREMENT = "INCREMENT";
-export const DICREMENT = "DICREMENT";
-export const INPUT_VALUE = "INPUT_VALUE";
+export const GET_INPUT_VALUE = "GET_INPUT_VALUE";
+export const UPDATE_ARRAY = "UPDATE_ARRAY";
