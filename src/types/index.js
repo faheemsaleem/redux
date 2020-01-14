@@ -1,2 +1,3 @@
-export const GET_INPUT_VALUE = "GET_INPUT_VALUE";
-export const UPDATE_ARRAY = "UPDATE_ARRAY";
+export const LOADING_STATE = "LOADING_STATE";
+export const LOADED_SUCSESS = "LOADED_SUCSESS";
+export const LOADED_ERROR = "LOADED_ERROR";

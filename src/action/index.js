@@ -1,30 +1,29 @@
-import * as type from "../types";
+import * as type from "../types/index";
 import axios from "axios";
 
+const Loading = () => {
+  return {
+    type: type.LOADING_STATE
+  };
+};
 
-export const actionForGetInputValue = (value)=>{
-    console.log(value)
-    return {
-        type:type.GET_INPUT_VALUE,
-        payload:{
-            value
-        }
-    }
-}
+const Error_load = err => {
+  return {
+    type: type.LOADED_ERROR,
+    payload: err
+  };
+};
 
-export const FetchDataFromJsonApi = ()=>{
-    return async (disptch)=> {
-        const data =await axios.get("https://jsonplaceholder.typicode.com/posts");
-        const respon =await data.data
-        disptch({type:"DATA",payload:respon})
-    }
-}
- 
-
-export const actionForUpdateTaskArray = ()=>{
-    console.log("Hello WORLD")
-    return{
-           type:type.UPDATE_ARRAY,
-       } 
-    
-}
+export const SecessFullyDataRecive = () => {
+  return dispatch => {
+    dispatch(Loading());
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then(res => {
+        dispatch({ type: type.LOADED_SUCSESS, payload: res.data });
+      })
+      .catch(e => {
+        dispatch(Error_load(e));
+      });
+  };
+};

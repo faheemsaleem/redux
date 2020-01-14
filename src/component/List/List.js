@@ -1,29 +1,13 @@
 import React from 'react';
-import {connect} from "react-redux";
 
-const List = ({task,dispatch}) => {
-
+const List = (props) => {
+    console.log(props)
     return (
         <div>
-            <ul>
-                {
-                    task.length > 0 && task.map((item,i)=>{
-                        return (
-                            <li key={i}>{item}</li>
-                        )
-                    })
-                }
-            </ul>
+            <h1>Workin Well</h1>
         </div>
     )
 }
 
 
-const mapStateToProps = ({task})=>{
-    return{
-        task
-    }
-}
-
-
-export default connect(mapStateToProps)(List);
+export default List
