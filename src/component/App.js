@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 
 import { SecessFullyDataRecive } from "../action/index";
 
-
 class App extends Component {
   state = {
     itemPerPage: 12
@@ -13,7 +12,6 @@ class App extends Component {
   componentDidMount() {
     this.props.SecessFullyDataRecive();
   }
-  
 
   render() {
     const Check = this.props.location.state === undefined;
@@ -33,7 +31,13 @@ class App extends Component {
     }
     return (
       <div>
-        <h1>Hello World</h1>
+        <h1
+          style={{
+            textAlign: "center"
+          }}
+        >
+          Robotic Web Data Feching
+        </h1>
         {this.props.error.message ? (
           <h1 style={{ color: "red" }}>{this.props.error.message}</h1>
         ) : this.props.loading ? (
@@ -56,7 +60,10 @@ class App extends Component {
               >
                 <img
                   alt="Rebots Are gone to future"
-                  src={`https://robohash.org/${user.id}?size=150x150`}
+                  src={
+                    `https://robohash.org/${user.id}?size=150x150` ||
+                    console.log(`https://robohash.org/${user.id}?size=150x150`)
+                  }
                 />
                 <h4>{user.title}</h4>
                 <p>{user.body.substr(0, 30)}...</p>
