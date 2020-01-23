@@ -1,3 +1,0 @@
-export const LOADING_STATE = "LOADING_STATE";
-export const LOADED_SUCSESS = "LOADED_SUCSESS";
-export const LOADED_ERROR = "LOADED_ERROR";
